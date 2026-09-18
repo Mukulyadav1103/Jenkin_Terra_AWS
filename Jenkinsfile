@@ -34,5 +34,11 @@ pipeline {
                 bat 'terraform apply -auto-approve'
             }
         }
+        stage('Terraform Destroy') {
+            steps {
+                input message: 'Destroy AWS infrastructure?'
+                bat 'terraform destroy -auto-approve'
+            }
+        }
     }
 }
